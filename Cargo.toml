@@ -1,7 +1,7 @@
 [package]
 name = "bevy_template"
 version = "0.1.0"
-edition = "2021"
+edition = "2024"
 
 [profile.dev]
 opt-level = 1
@@ -24,3 +24,15 @@ log = { version = "*", features = [
     "max_level_debug",
     "release_max_level_warn",
 ] }
+
+[features]
+dev = [
+    "bevy/dynamic_linking",
+    "bevy/bevy_dev_tools",
+    "bevy/file_watcher",
+    "bevy/embedded_watcher",
+]
+
+[lints.clippy]
+too_many_arguments = "allow"
+type_complexity = "allow"
