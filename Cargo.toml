@@ -10,13 +10,11 @@ opt-level = 1
 codegen-units = 1
 lto = "thin"
 
-[profile.wasm-release]
-inherits = "release"
-opt-level = "s"
-strip = "debuginfo"
-
 [profile.dev.package."*"]
 opt-level = 3
+
+[profile.dev.package.wgpu-types]
+debug-assertions = false
 
 [dependencies]
 bevy = "*"
@@ -31,8 +29,11 @@ dev = [
     "bevy/bevy_dev_tools",
     "bevy/file_watcher",
     "bevy/embedded_watcher",
+    "bevy/bevy_ui_debug",
+    "bevy/track_location",
 ]
 
 [lints.clippy]
 too_many_arguments = "allow"
 type_complexity = "allow"
+nonstandard_macro_braces = "warn"
